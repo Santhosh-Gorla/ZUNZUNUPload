@@ -1,0 +1,23 @@
+{
+    "name": "ZUNZUN UPLOAD",
+    "version": "1.0",
+    "description": "Build an Extension!",
+    "permissions": ["declarativeContent", "storage","activeTab"],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+      },
+      "page_action": {
+        "default_popup": "popup.html"
+      },
+      "content_scripts": [
+        {
+          "matches": ["http://*.zunzun.com/Equation*"],
+          "run_at": "document_end",
+          "all_frames": true,
+          "js": ["jq.js","contentScript.js"],
+          "css": ["styles.css"]
+        }
+      ],
+    "manifest_version": 2
+}
